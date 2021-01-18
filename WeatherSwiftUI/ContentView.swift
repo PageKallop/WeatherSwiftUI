@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var weatherVM: WeatherViewModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .center) {
+            Text(weatherVM.cityName)
+                .font(.largeTitle)
+                .padding()
+            Text(weatherVM.temperature)
+                .font(.system(size: 70))
+                .bold()
+            Text(weatherVM.iconName)
+                .font(.largeTitle)
+                .padding()
+            Text(weatherVM.weatherDescription)
+
+        }.onAppear(perform: {
+            weatherVM.refresh()
+        })
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(weatherVM: WeatherViewModel(weatherService: WeatherService()))
     }
 }
+

@@ -6,15 +6,40 @@
 //
 
 import Foundation
+import CoreLocation
 
 
-struct WeatherModels: Decodable {
+struct WeatherModel: Decodable {
+        
+    var name: String
+    var main: Main
+    var weather: [Weather]
     
-    let main: Weather
+}
+
+struct Main: Decodable {
+    
+    var temp: Double?
+    var humidity: Double?
+    
+  
 }
 
 struct Weather: Decodable {
     
-    var temp: Double?
-    var humidity: Double?
-}
+    var description: String?
+    var icon: String
+    
+    enum CodingKeys: String, CodingKey {
+        case description
+        case icon = "main"
+    }
+   
+ }
+
+
+
+
+
+
+
