@@ -48,7 +48,10 @@ class WeatherViewModel: ObservableObject {
         
         self.weatherService.getWeather(city: city) { weather in
             if let weather = weather {
-                self.weather = weather
+                DispatchQueue.main.async {
+                    self.weather = weather
+                }
+               
             }
         }
     }
@@ -56,7 +59,7 @@ class WeatherViewModel: ObservableObject {
 
 
 
-//private let defaultIcon = "☀️"
+//private let defaultIcon = "☀️"  5
 //private let iconMap = [
 //    "Sunny" : "☀️",
 //    "Clouds": "☁️",

@@ -9,19 +9,19 @@ import Foundation
 
 
 
-struct WeatherModel: Decodable {
+public struct WeatherModel: Decodable {
   
     var main: Main
 }
 
-struct Main: Decodable {
+public struct Main: Decodable {
     
     var temp: Double?
     var humidity: Double?
-//    var description: [Weather]
+   
   }
 
-struct Weather: Decodable {
+public struct Weather: Decodable {
     
     var description: String?
 }

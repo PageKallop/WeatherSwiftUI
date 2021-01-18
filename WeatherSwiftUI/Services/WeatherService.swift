@@ -11,8 +11,9 @@ import Foundation
 class WeatherService {
     
      func getWeather(city: String, completion: @escaping (Main?) ->()) {
-        guard let url = URL(string: "https:api.openweathermap.org/data/2.5/weather?lq=\(city)&appid=&units=imperial") else {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=9673b67f0d9fe1c5a7061abfd8b8818f&units=imperial") else {
             completion(nil)
+            print("get")
             return
         }
                
@@ -20,12 +21,14 @@ class WeatherService {
             guard let data = data, error == nil else {
                 completion(nil)
                 return
+                print("sesh")
             }
             
             let weatherResponce = try? JSONDecoder().decode(WeatherModel.self, from: data)
             if let weatherResponce = weatherResponce {
                 let weather = weatherResponce.main
                 completion(weather)
+                print(weatherResponce.main)
             } else {
                 completion(nil)
             }
