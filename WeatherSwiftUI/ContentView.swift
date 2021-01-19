@@ -27,12 +27,11 @@ struct ContentView: View {
                 .font(.largeTitle)
             
             TextField("Enter city name", text: self.$weatherVM.cityName) {
-                self.weatherVM.search()
+
             }.font(.custom("Arial", size: 50))
             .cornerRadius(5)
 //            .frame(width: 350, height: 200, alignment: .center)
             .shadow(radius: 10)
-            
             .padding()
             .fixedSize()
             
@@ -41,13 +40,20 @@ struct ContentView: View {
                 .shadow(radius: 10)
                 .font(.custom("Arial", size: 50))
                 .offset(y: 100)
-                .padding()
-     
-             
-             
+            HStack {
+            Button("Search"){
+                self.weatherVM.search()
+            }.font(.title)
+            }.padding(EdgeInsets(top: 50, leading: 35, bottom: 50, trailing: 35))
+            .foregroundColor(Color.black)
+            .background(Color.white)
+            .cornerRadius(116)
+            
 
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-     
+        
+        }.frame(minWidth: 0, maxWidth: .infinity,
+                minHeight: 0, maxHeight: .infinity)
+        .background(Color(red: 179/255, green: 230/255, blue: 255/255))
         .edgesIgnoringSafeArea(.all)
     }
     
