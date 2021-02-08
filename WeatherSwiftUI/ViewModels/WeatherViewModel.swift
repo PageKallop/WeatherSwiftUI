@@ -59,35 +59,6 @@ class WeatherViewModel: ObservableObject {
 
 
 
-//private let defaultIcon = "☀️"  5
-//private let iconMap = [
-//    "Sunny" : "☀️",
-//    "Clouds": "☁️",
-//    "Rain" : "🌧",
-//    "Snow" : "🌨",
-//    "Thunderstorm" : "⛈",
-//    "Windy" : "🌬"
-//]
-//
-//public class WeatherViewModel: ObservableObject {
-//
-//let weatherService: WeatherService
-//    init(weatherService: WeatherService) {
-//        self.weatherService = weatherService
-//    }
-//
-//    @Published var cityName: String = "City Name"
-//    @Published var temperature: String = "__"
-//    @Published var weatherDescription: String = "__"
-//    @Published var iconName: String = ""
-//
-//
-//    init() {
-//        self.weatherService = WeatherService()
-//
-//    }
-//}
-    
- 
+
     
     

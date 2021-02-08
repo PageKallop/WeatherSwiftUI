@@ -18,7 +18,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        
         VStack {
             Text("☀️ 🌧 🌨")
                 .padding(.bottom, 100)
@@ -36,23 +35,35 @@ struct ContentView: View {
             .fixedSize()
             
             Text(self.weatherVM.temperature)
+                .background(Color.gray)
                 .frame(width: 200, height: 50, alignment: .center)
                 .shadow(radius: 10)
                 .font(.custom("Arial", size: 50))
                 .offset(y: 100)
             HStack {
-            Button("Search"){
+                
+                Button(action: {
                 self.weatherVM.search()
-            }.font(.title)
-            }.padding(EdgeInsets(top: 50, leading: 35, bottom: 50, trailing: 35))
+
+                }) {
+                    VStack {
+                    Text("Search")
+                    
+                Image(systemName: "thermometer")
+                    .font(.title)
+                    .animation(.spring())
+                .font(.title)
+            }.padding(EdgeInsets(top: 15, leading: 55, bottom: 15, trailing: 55))
             .foregroundColor(Color.black)
             .background(Color.white)
             .cornerRadius(116)
-            
-
+                }.shadow(radius: 8, x: 8, y: 8)
         
-        }.frame(minWidth: 0, maxWidth: .infinity,
-                minHeight: 0, maxHeight: .infinity)
+        }
+    
+    }.background(Color(red: 179/255, green: 230/255, blue: 255/255))
+        .frame(minWidth: 0, maxWidth: .infinity,
+            minHeight: 0, maxHeight: .infinity)
         .background(Color(red: 179/255, green: 230/255, blue: 255/255))
         .edgesIgnoringSafeArea(.all)
     }
