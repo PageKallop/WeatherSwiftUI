@@ -34,13 +34,8 @@ struct ContentView: View {
             .padding()
             .fixedSize()
             
-            Text(self.weatherVM.temperature)
-                .background(Color.gray)
-                .frame(width: 200, height: 50, alignment: .center)
-                .shadow(radius: 10)
-                .font(.custom("Arial", size: 50))
-                .offset(y: 100)
-            HStack {
+            
+            VStack {
                 
                 Button(action: {
                 self.weatherVM.search()
@@ -58,6 +53,11 @@ struct ContentView: View {
             .background(Color.white)
             .cornerRadius(116)
                 }.shadow(radius: 8, x: 8, y: 8)
+                Text(self.weatherVM.temperature)
+                    .frame(width: 200, height: 50, alignment: .center)
+                    .shadow(radius: 10)
+                    .font(.custom("Arial", size: 50))
+                    .offset(y: 100)
         
         }
     
